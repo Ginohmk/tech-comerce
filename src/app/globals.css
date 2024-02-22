@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --text-color: #141414;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,18 +17,60 @@
   }
 }
 
+/* Fluid Typography */
+html {
+  font-size: calc(14px + 0.0339vw);
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 400;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 400;
+}
+
+h5 {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 500;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Other Utilities */
+.max-width-center {
+  max-width: 1440px;
+  margin: 0 auto;
 }
