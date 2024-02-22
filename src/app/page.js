@@ -1,5 +1,10 @@
+import PromoHead from '@/components/promo-head/page';
 import Image from 'next/image';
 
 export default function Home() {
-  return <h1 className="">Hello</h1>;
+  return (
+    <section>
+      <PromoHead />
+    </section>
+  );
 }
